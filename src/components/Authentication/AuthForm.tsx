@@ -1,7 +1,8 @@
 import { useRef, useContext } from 'react';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-import { Container} from './AuthFormStyle'
+import { ContainerForm} from './styles'
 const AuthForm :React.FC =()=>{
 
     const emailInputRef = useRef<HTMLInputElement>(null);
@@ -18,11 +19,12 @@ const AuthForm :React.FC =()=>{
     }
 
     return(
-        <Container>
+        <ContainerForm>
+            <h2> Authentication </h2>
             <div className="formDiv">
                 <form onSubmit={submitHandler}>
-                    <h2> Authentication </h2>
-                
+                    
+                  
                     <input type='email' id='email'  placeholder ="Email" required ref={emailInputRef} />
                     <input
                         type='password'
@@ -31,15 +33,25 @@ const AuthForm :React.FC =()=>{
                         required
                         ref={passwordInputRef}
                     />
-                    
+                    <button
+                        type="button"
+                        className = "forgot"
+
+                    >
+                        I forgot my password 
+                    </button>
                     <div>
                         <button type="submit">
-                            Log In 
+                            Log In  <FontAwesomeIcon icon={faArrowRight} />
                         </button>
                     </div>
                 </form>
+                <button className="signUpButton" type="button">
+                    Sign Up <FontAwesomeIcon icon={faArrowRight} />
+                </button>
             </div>
-        </Container>
+            
+        </ContainerForm>
     )
 }
 

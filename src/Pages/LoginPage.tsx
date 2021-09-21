@@ -1,10 +1,16 @@
-import React from 'react';
+
+import AuthBanner from '../components/Authentication/AuthBanner';
 import AuthForm from '../components/Authentication/AuthForm';
+import { ContainerMain } from '../components/Authentication/styles';
+
 
 const LoginPage = ()=>{
 
     return(
-        <AuthForm/>
+        <ContainerMain>
+            <AuthBanner/>
+            <AuthForm/>
+        </ContainerMain>
     )
 }
 
