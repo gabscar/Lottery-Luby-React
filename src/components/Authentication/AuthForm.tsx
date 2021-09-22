@@ -1,7 +1,9 @@
-import { useRef, useContext } from 'react';
+import { useRef } from 'react';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useHistory } from 'react-router';
+import { AuthActions } from '../../store/auth-slice';
+import { useDispatch } from 'react-redux';
 
 import { ContainerForm} from './styles'
 const AuthForm :React.FC =()=>{
@@ -10,13 +12,20 @@ const AuthForm :React.FC =()=>{
     const passwordInputRef = useRef<HTMLInputElement>(null);
 
     const history = useHistory();
-  
+    const dispatch = useDispatch();
     
     const submitHandler = (event: React.FormEvent) => {
         event.preventDefault();
     
         const enteredEmail = emailInputRef.current!.value;
         const enteredPassword = passwordInputRef.current!.value;
+        dispatch(AuthActions.login({            
+            name: 'gabriel',
+            email:'gabriel@mail.com',
+            password:'123456',
+            administrator: false            
+        }));
+        history.push('/game');
     }
 
     return(

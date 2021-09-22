@@ -9,7 +9,7 @@ import RegistrationPage from '../Pages/RegistrationPage';
 import LoginPage from '../Pages/LoginPage';
 import NotFoundPage from '../Pages/NotFoundPage';
 import ForgotPasswordPage from '../Pages/ForgotPasswordPage';
-import GamePanel from "../components/Game/GamePanel";
+import NewGamePage from "../Pages/NewGamePage";
 
 
 
@@ -34,7 +34,7 @@ const Routes = ()=>{
                     <ForgotPasswordPage/>
                 </Route>
                 <Route path='/game' exact>
-                    <GamePanel/>
+                    <NewGamePage/>
                 </Route>
                 <Route path ='*'>
                     <NotFoundPage/>
