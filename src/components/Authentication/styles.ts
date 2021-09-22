@@ -27,6 +27,17 @@ export const ContainerForm = styled.div`
     margin: 1rem 0 1rem 0;
     background-color: white;
   }
+  .formDivForgot{
+    align-self:center;
+    justify-content:center;
+    border-radius:15px;
+    width: 45%;
+    height: 20%;
+    border: 1px solid #00000014;
+    padding: 10px 0 10px 0;
+    margin: 1rem 0 1rem 0;
+    background-color: white;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -67,7 +78,7 @@ export const ContainerForm = styled.div`
     cursor:pointer;
     text-align: end;
   }
-  .formDiv .signUpButton{
+  .signUpButton{
     width: 100%;
     align-self: center;
     font: italic normal bold 35px/70px Helvetica Neue;
