@@ -10,6 +10,7 @@ import LoginPage from '../Pages/LoginPage';
 import NotFoundPage from '../Pages/NotFoundPage';
 import ForgotPasswordPage from '../Pages/ForgotPasswordPage';
 import NewGamePage from "../Pages/NewGamePage";
+import HomePage from "../Pages/HomePage";
 
 
 
@@ -35,7 +36,12 @@ const Routes = ()=>{
                     <ForgotPasswordPage/>
                 </Route>
                 <Route path='/game' exact>
-                    <NewGamePage/>
+                    {isAuth&& <NewGamePage/>}
+                    {!isAuth && <Redirect to="/login"/>}
+                </Route>
+                <Route path='/home' exact>
+                    {isAuth&& <HomePage/>}
+                    {!isAuth && <Redirect to="/login"/>}
                 </Route>
                 <Route path ='*'>
                     <NotFoundPage/>

@@ -3,13 +3,14 @@ import CartNewGame from "../components/Cart/CartNewGame";
 import GamePanel from "../components/Game/GamePanel";
 import { ContainerGames } from "../components/Game/styles";
 import { Game } from "../components/Game/GamePanel";
+import { dataAtualFormatada } from "../Services/utilFunctions";
 
 export interface cart{
     type:string;
     numbers:number[];
     value: number;
     color: string;
-  
+    data: string;
 }
 
 const NewGamePage : React.FC=()=>{
@@ -22,9 +23,10 @@ const NewGamePage : React.FC=()=>{
               numbers: selectedNumbers,
               color: game.color,
               value: game.price,
-             
+              data: dataAtualFormatada(),
             }
         ]
+        
         setCartItem(newCart);
     }
     const removeItem = (id:number)=>{

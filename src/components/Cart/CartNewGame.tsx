@@ -1,14 +1,14 @@
 
+import { useEffect, useState } from 'react';
+import { useDispatch} from 'react-redux';
+import { CartActions } from '../../store/cart-slice';
+
 import {CartContainer, CartEmptyContainer, CartInsertedItem} from './styles'
 import {cart} from '../../Pages/NewGamePage'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import {toast} from 'react-toastify';
 import trashImg from '../../assets/trash.png'
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { CartActions } from '../../store/cart-slice';
+
 interface cartEntrance{
     CartItem : cart[];
     RemoveCart:(index:number)=>void;
@@ -18,10 +18,10 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart})=>{
     const [cartElements,setCartElements]=useState<cart[]>([]);
     const [totalPrice,setTotalPrice]=useState(0);
     const dispatch = useDispatch();
-
+    
     useEffect(()=>{
         setCartElements(CartItem);
-        setTotalPrice(CartItem.reduce((prevItem, currentItem) => prevItem + currentItem.value, 0));
+        setTotalPrice(CartItem.reduce((prevItem, currentItem,key) => prevItem + currentItem.value, 0));
     },[CartItem]);
     
     const generateCartElements = ()=>{
@@ -49,36 +49,27 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart})=>{
         }
         return cart;
     }
-
     const handleDeleteItem = (id:number)=>{
         RemoveCart(id);
     }
     const saveGamesHandle=()=>{
         if(cartElements.length===0){
-            toast.warn('Add some element to cart to continue', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            alert('Add some element to cart to continue');
             return;
         }
         if(totalPrice<30){
-            toast.warn('The minimum purchase amount is BRL 30.00 ', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
+            alert('The minimum purchase amount is BRL 30.00 ');
             return;
         }
+        let cartWithData = [...cartElements,'Data = 0'];
+        console.log(cartWithData)
+        dispatch(CartActions.buyGames(cartWithData));
+        setCartElements([]);
+        setTotalPrice(0);
+        
+
     }
+    
     return (
         <CartContainer>
             <h2>CART</h2>
@@ -91,7 +82,7 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart})=>{
                     <h2>Cart <span className='total'>Total: R$ {(totalPrice.toFixed(2)).replace('.',',')}</span></h2>
                     
                 </div>
-                <button className="save-btn">
+                <button className="save-btn" onClick={saveGamesHandle}>
                     Save <FontAwesomeIcon className="icon" icon={faArrowRight} />
                 </button>
             </div>

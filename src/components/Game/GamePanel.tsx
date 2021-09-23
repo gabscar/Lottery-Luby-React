@@ -49,6 +49,7 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
             setSelectedNumbers(selectedNumbers.filter((item)=>item !==index));
             
         }else if(limit ===0){
+           
             alert(`número máximo de números (${gameSelected['max-number']}) selecionado`)
         }
     }
@@ -81,9 +82,10 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
         let numbersInDescription= gameSelected.description.match(/\d+/g);
         let arr:number[] = numbersInDescription!.map(item=>Number(item));
         let menor = Math.min(...arr);
-        console.log(menor)
+       
         if(selectedNumbers.length>=menor){
             setCart(gameSelected,selectedNumbers);
+            setSelectedNumbers([]);
         }else{
             alert(`Selecione de ${menor} até ${gameSelected['max-number']} números para colocar no carrinho`)
         }

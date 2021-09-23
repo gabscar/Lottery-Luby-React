@@ -3,14 +3,13 @@ import styled from 'styled-components';
 
 
 export const FooterContainer = styled.footer`
-   
-    
-    
+
     text-align: center;
     color: #707070;
     border-top: 1px solid #ebebeb;
     padding-top: 0.5rem;
     padding-bottom: 0rem;
+    width:100%;
     
 `;
 

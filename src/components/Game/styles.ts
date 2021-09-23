@@ -98,17 +98,17 @@ export const GameSection = styled.div`
 
 export const ButtonGameMode = styled.button<{color:string; selected:boolean}>`
    
-    
     color : ${({color,selected})=>(selected ===true ? '#FFFFFF':color)};
     background-color:${({color,selected})=>(selected ===true ? color:'#FFFFFF' )};
     border : ${({color})=>'2px solid' +color};
-    padding : 0.3rem 1.25rem;
+    padding : 0rem 1.25rem;
     border-radius : 1.25rem;
     margin-left : 1rem;
     cursor : pointer;
     font: italic normal bold 15px Helvetica Neue;
     outline: none;
     min-width: 113px;
+    heigth:20px;
 `
 export const ButtonNumber = styled.button<{color:string}>`
 
