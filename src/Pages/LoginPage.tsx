@@ -4,13 +4,17 @@ import AuthForm from '../components/Authentication/AuthForm';
 import { ContainerMain } from '../components/Authentication/styles';
 
 
+
 const LoginPage = ()=>{
 
     return(
-        <ContainerMain>
-            <AuthBanner/>
-            <AuthForm/>
-        </ContainerMain>
+        <>
+            <ContainerMain>
+                <AuthBanner/>
+                <AuthForm/>
+            </ContainerMain>
+           
+        </>
     )
 }
 

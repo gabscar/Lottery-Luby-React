@@ -6,11 +6,12 @@ export const CartContainer = styled.div`
     background-color: #FFF;
     border-radius: 0.625rem;
     border: 1px solid #E2E2E2;
-    width: 25%;
+    width: 30%;
     position: relative;
+    margin-right: 12.438rem; 
 
     h2{
-        margin-top: 2rem;
+        margin-top: 0rem;
         margin-left: 1rem;
         color: #707070;
         font: italic normal bold 24px/85px Helvetica Neue;
@@ -22,6 +23,7 @@ export const CartContainer = styled.div`
         align-items: center;
         justify-content: space-between;
         height: 18rem;
+        
     }
 
     .cart-element .cart-item{
@@ -32,8 +34,9 @@ export const CartContainer = styled.div`
         align-items: center;  
         overflow-y: scroll;
         overflow-x: hidden; 
+        
     }
-
+    
     .cart-element .cart-item::-webkit-scrollbar{
         width: 0.4rem;
     }
@@ -47,30 +50,32 @@ export const CartContainer = styled.div`
         border-radius: 20px;       
         border: 0.1px solid var(--ligthgray);  
     }
-
+   
     .totalCart{
-        margin-top: 1rem;
+        
         display: flex;
         justify-content: center;
         align-items: center;
-            
+        margin-bottom:2rem;   
     }
 
     .totalCart h2{
+        display:flex;
         font-size: 1.5rem;
         margin-right: 0.5rem;
-        font: italic normal bold 24px/85px Helvetica Neue;
+        font: italic normal bold 24px Helvetica Neue;
         text-align: center;
         justify-content:center;
+        flex-direction: row;
     }
 
     .totalCart .total{
         text-align: center;
-        font: normal normal 300 24px/85px Helvetica Neue;
+        font: normal normal 300 24px Helvetica Neue;
         letter-spacing: 0px;
         color: #707070;
         text-transform: uppercase;
-        
+        padding-left:0.5rem;
         
     }
 
@@ -93,4 +98,73 @@ export const CartContainer = styled.div`
         height: 20px;
         margin-left:18px;
     }
+    @media (max-width:1000px){     
+            
+        width: 50%;
+        align-self: center;
+        justify-self: center;
+        margin:0% 5% 0% 5%;
+        
+    }
+`
+
+
+export const CartInsertedItem = styled.div<{color:string}>`
+    
+    align-items:center;
+    flex-direction : row;
+    display:flex;                  
+    width :100%;
+    padding-top : 0rem;
+    padding-bottom : 1rem;
+    
+    button{
+        background-color:#fff;
+        border:none;    }
+    img{
+        width: 20px;
+        height: 24px;
+        padding: 20%; 
+    }
+    .rightDiv{
+        border-left : ${({color})=>'4px solid' + color};
+        border-radius : 4px 0px 0px 4px;
+        width : 234px;
+        margin-left:14.4px;
+        display:flex;
+        flex-direction:column;
+        
+    }
+    .rightDiv .pNumbers{
+        padding-left: 5%;
+        padding-right: 5%;  
+        margin-bottom : 0rem;
+        text-align: left;
+        font: italic normal bold 15px/20px Helvetica Neue;
+        letter-spacing: 0px;
+        color: #868686;
+        opacity: 1;
+    }
+
+    .rightDiv .pNameandValue{
+        padding-left: 5%;
+        flex-direction : row;
+        normal normal normal 16px Helvetica Neue;
+        margin-top : 0rem;
+    }
+    .rightDiv .pNameandValue .gameMode{
+        color :${({color})=>color};
+        font: italic normal bold 16px Helvetica Neue;
+        padding-right: 5%;
+    }
+
+`
+
+
+export const CartEmptyContainer=styled.div`
+    color: #868686;
+    display: flex;
+    justifyContent: center;
+    alignItems: center;
+    font: italic normal bold 17px Helvetica Neue;
 `

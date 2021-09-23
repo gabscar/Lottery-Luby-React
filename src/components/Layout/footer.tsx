@@ -2,16 +2,18 @@
 
 
 import React from 'react';
-import {Footer} from './styles';
+import {FooterContainer} from './styles';
 
-const footer: React.FC = () => {
+const Footer: React.FC = () => {
 
 
     return(
-            <Footer>
-                Copyright 2020 Luby Software
-            </Footer>
+            <FooterContainer>
+                <p>
+                    Copyright 2020 Luby Software
+                </p>
+            </FooterContainer>
     )    
 }
 
-export default footer;
+export default Footer;

@@ -9,6 +9,7 @@ export interface cart{
     numbers:number[];
     value: number;
     color: string;
+  
 }
 
 const NewGamePage : React.FC=()=>{
@@ -21,16 +22,17 @@ const NewGamePage : React.FC=()=>{
               numbers: selectedNumbers,
               color: game.color,
               value: game.price,
+             
             }
         ]
         setCartItem(newCart);
     }
-    const removeItem = (index:number)=>{
-      setCartItem(cartItems.splice(index,1));
+    const removeItem = (id:number)=>{
+      setCartItem(cartItems.filter((item, index) => index !== id));
     }
     return(
         <ContainerGames>
-            <GamePanel setCart= {addNewItem}/>
+            <GamePanel setCart= {addNewItem} />
             <CartNewGame CartItem = {cartItems} RemoveCart= {removeItem}/>
         </ContainerGames>
     )

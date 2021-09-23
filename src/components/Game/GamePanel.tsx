@@ -3,7 +3,7 @@ import api from '../../Services/api';
 import NumberButton from './NumberButton';
 import {ButtonGameMode, GameSection} from './styles'
 import { FiShoppingCart } from "react-icons/fi";
-import {cart} from '../../Pages/NewGamePage'
+
 export interface Game{
     id:number;
     type: string;
@@ -51,7 +51,6 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
         }else if(limit ===0){
             alert(`número máximo de números (${gameSelected['max-number']}) selecionado`)
         }
-        console.log(selectedNumbers)
     }
     const generateNumberTable = ()=>{
         let numbers = []
@@ -59,7 +58,7 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
            numbers.push( 
                 <NumberButton
                     key={i}
-                    value={i>9? i: Number("0"+i)}
+                    value={i}
                     color = {gameSelected.color}
                     selected = {selectedNumbers.includes(i)}
                     onClick = {()=>clickNumberHandle(i)}
@@ -75,10 +74,37 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
 
         setSelectedNumbers([]);
     }
+    const clearGameHandle = ()=>{
+        setSelectedNumbers([]);
+    }
     const addCartHandle = ()=>{
-        if(selectedNumbers.length===gameSelected['max-number']){
+        let numbersInDescription= gameSelected.description.match(/\d+/g);
+        let arr:number[] = numbersInDescription!.map(item=>Number(item));
+        let menor = Math.min(...arr);
+        console.log(menor)
+        if(selectedNumbers.length>=menor){
             setCart(gameSelected,selectedNumbers);
+        }else{
+            alert(`Selecione de ${menor} até ${gameSelected['max-number']} números para colocar no carrinho`)
         }
+    }
+    const completeRandomGameHandle =()=>{
+        let numbers:number[]= [];
+        let limit = gameSelected['max-number'] - selectedNumbers.length; 
+        if(limit===0){
+            clearGameHandle();
+            limit = gameSelected['max-number'];
+            numbers =[];
+        }else{
+            numbers= selectedNumbers;
+        }
+        while(numbers.length<limit){
+            let sort = Math.floor(Math.random() * (gameSelected.range - 1)+1);
+            if(numbers.indexOf(sort) === -1){
+                numbers.push(sort);
+            }
+        }
+        setSelectedNumbers([...numbers]);
     }
     
     return(
@@ -112,8 +138,8 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
             </div>
             <div className='buttonsActionGame'>
                 <div className="buttons-left">
-                    <button className="left-btn">Complete game</button>
-                    <button className="left-btn">Clear game</button>
+                    <button className="left-btn" onClick={completeRandomGameHandle}>Complete game</button>
+                    <button className="left-btn" onClick={clearGameHandle}>Clear game</button>
                 </div>
                 <button className="right-btn"
                         onClick={addCartHandle}

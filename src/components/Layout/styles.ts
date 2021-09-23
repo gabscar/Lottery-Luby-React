@@ -2,17 +2,22 @@
 import styled from 'styled-components';
 
 
-export const Footer = styled.footer`
+export const FooterContainer = styled.footer`
+   
+    
+    
     text-align: center;
     color: #707070;
     border-top: 1px solid #ebebeb;
-    padding: 1%;
+    padding-top: 0.5rem;
+    padding-bottom: 0rem;
+    
 `;
 
 
 export const HeaderContainer=styled.header`
     display: flex;
-    padding: 0% 5% 0% 5%;
+    padding: 0% 13% 0% 9%;
     justify-content: space-between;
     border-bottom: 1px solid #ebebeb;
     
@@ -35,6 +40,11 @@ export const HeaderContainer=styled.header`
         text-decoration: none;
         padding: 15px 20px 0px;
         cursor: pointer;
+    }
+    .pagesLinks .arrow-logout{
+        width: 15px;
+        height:15px;
+        margin-left:0.5rem;
     }
 `;
 

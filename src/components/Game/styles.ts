@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 
 export const GameSection = styled.div`
-    width: 80%;
+    width: 90%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -31,7 +31,8 @@ export const GameSection = styled.div`
         margin-bottom:1.75rem;
     }
     .chooseGame .GameMode{
-        display: flex; 
+        display: flex;
+        margin-left: 0rem; 
     }
     .chooseGame p{
         text-align: left;
@@ -83,6 +84,15 @@ export const GameSection = styled.div`
         width: 13.063rem;
         margin-right: 2rem;
     }
+    @media (max-width:1000px){
+        
+        max-width:1000px;
+        align-items: center;
+        height: 100%;
+        .chooseGame {
+            padding: 0% 5% 0% 5%;
+        }
+    }
     
 `
 
@@ -94,7 +104,7 @@ export const ButtonGameMode = styled.button<{color:string; selected:boolean}>`
     border : ${({color})=>'2px solid' +color};
     padding : 0.3rem 1.25rem;
     border-radius : 1.25rem;
-    margin-left : 1.5rem;
+    margin-left : 1rem;
     cursor : pointer;
     font: italic normal bold 15px Helvetica Neue;
     outline: none;
@@ -120,10 +130,18 @@ export const ButtonNumber = styled.button<{color:string}>`
 export const ContainerGames = styled.div`
 
     margin: 0 auto;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 2.6rem; 
+    padding-top: 2.6rem;
+    margin-bottom: 10%;  
+    @media (max-width:1000px){
+        
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        
+    }
 
 `

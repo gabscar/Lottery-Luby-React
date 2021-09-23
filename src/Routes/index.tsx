@@ -1,7 +1,7 @@
 
 import { Route, Switch, BrowserRouter, Redirect} from "react-router-dom";
 import Header from '../components/Layout/header';
-import { Footer } from '../components/Layout/styles';
+import  Footer  from '../components/Layout/footer';
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
 
@@ -20,6 +20,7 @@ const Routes = ()=>{
     return(
         <BrowserRouter>
             {isAuth && <Header/>}
+            
             <Switch>
                 <Route path='/' exact>
                     <Redirect to="/login"/>
@@ -40,7 +41,7 @@ const Routes = ()=>{
                     <NotFoundPage/>
                 </Route>
             </Switch>
-           <Footer/>
+            <Footer/>
         </BrowserRouter>
     )
 }
