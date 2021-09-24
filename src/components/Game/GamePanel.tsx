@@ -3,7 +3,8 @@ import api from '../../Services/api';
 import NumberButton from './NumberButton';
 import {ButtonGameMode, GameSection} from './styles'
 import { FiShoppingCart } from "react-icons/fi";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export interface Game{
     id:number;
     type: string;
@@ -48,8 +49,16 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
         }else if(selectedNumbers.includes(index)){
             setSelectedNumbers(selectedNumbers.filter((item)=>item !==index));
             
-        }else if(limit ===0){           
-            alert(`número máximo de números (${gameSelected['max-number']}) selecionado`)
+        }else if(limit ===0){ 
+            toast.warning(`Número máximo de números (${gameSelected['max-number']}) selecionado`,{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });          
         }
     }
     const generateNumberTable = ()=>{
@@ -86,19 +95,27 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
             setCart(gameSelected,selectedNumbers);
             setSelectedNumbers([]);
         }else{
-            alert(`Selecione de ${menor} até ${gameSelected['max-number']} números para colocar no carrinho`)
+            toast.warning(`Selecione de ${menor} até ${gameSelected['max-number']} números para colocar no carrinho`,{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
     }
     const completeRandomGameHandle =()=>{
         let numbers:number[]= [];
-        let limit = gameSelected['max-number'] - selectedNumbers.length; 
-        if(limit===0){
-            clearGameHandle();
+        setSelectedNumbers([]);
+        numbers.push(...selectedNumbers);
+        let limit = gameSelected['max-number'] - numbers.length; 
+        if(limit===0){            
             limit = gameSelected['max-number'];
             numbers =[];
         }
         let counter =0;
-        numbers.push(...selectedNumbers);
         while(counter<limit){
             let sort = Math.floor(Math.random() * (gameSelected.range - 1)+1);
             if(numbers.indexOf(sort) === -1){

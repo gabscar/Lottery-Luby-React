@@ -190,3 +190,47 @@ export const CartEmptyContainer=styled.div`
     alignItems: center;
     font: italic normal bold 17px Helvetica Neue;
 `
+
+
+export const DeleteAlert=styled.div`
+    
+    align-itens:center;
+    justify-content: center;
+    h1{
+        font: italic normal bold 20px/20px Helvetica Neue;
+    }
+    p{
+        font: italic normal bold 15px/20px Helvetica Neue;
+    }
+    .buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    button{
+        width: 100px;
+        heigth: 100px;
+        font: italic normal bold 15px/20px Helvetica Neue;
+        color: white;
+        align-self:center;
+        margin-top: 20px;
+        border-radius : 10px;
+    }
+   
+    .btn-not-confirm{
+        
+        background-color:green;
+        
+        &:hover{
+            background-color: #175600;
+        }
+    }
+    .btn-confirm{
+        background-color:#ae1700;
+        margin-left:3rem;
+        &:hover{
+            background-color: #9a1700;
+        }
+    }
+
+`

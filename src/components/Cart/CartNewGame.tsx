@@ -2,12 +2,17 @@
 import { useEffect, useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { CartActions } from '../../store/cart-slice';
-import {CartContainer, CartEmptyContainer, CartInsertedItem} from './styles'
+import {CartContainer, CartEmptyContainer, CartInsertedItem, DeleteAlert} from './styles'
 import {cart} from '../../Pages/NewGamePage'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import {BsTrash} from "react-icons/bs";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
+
 
 interface cartEntrance{
     CartItem : cart[];
@@ -51,18 +56,53 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart,setCart})=>{
         return cart;
     }
     const handleDeleteItem = (id:number)=>{
-        let confirma = window.confirm('Tem certeza que deseja deletar esse item?');
-        if(confirma === true){
-            RemoveCart(id);
-        }
+        let confirma = confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <DeleteAlert>
+                  <h1>Tem certeza?</h1>
+                  <p>Você deseja deletar esse Jogo?</p>
+                  <div className="buttons">
+                    <button  className='btn-not-confirm'onClick={onClose}>Não</button>
+                    <button
+                        className='btn-confirm'
+                        onClick={() => {
+                        RemoveCart(id);;
+                        onClose();
+                        }}
+                    >
+                        Deletar
+                    </button>
+                  </div>
+                </DeleteAlert>
+              );
+            }
+          });
     }
     const saveGamesHandle=()=>{
         if(CartItem.length===0){
-            alert('Adicione R$ 30,00 em compras para prosseguir');
+            toast.warning(`Adicione R$ 30,00 em compras para prosseguir`,{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }) 
+
             return;
         }
         if(totalPrice<30){
-            alert('O valor mínimo de compras é de R$ 30,00');
+            toast.warning(`O valor mínimo de compras é de R$ 30,00`,{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }) 
             return;
         }
         let cartWithData = [...CartItem];

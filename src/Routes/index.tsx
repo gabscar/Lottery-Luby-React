@@ -52,6 +52,7 @@ const Routes = ()=>{
             <Footer/>
         </BrowserRouter>
         <Style/>
+        <ToastContainer/>
         </>
     )
 }

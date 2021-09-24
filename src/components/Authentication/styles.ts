@@ -28,6 +28,27 @@ export const ContainerForm = styled.div`
     background-color: white;
     
   }
+  .formDivForgot{
+    align-self:center;
+    justify-content:center;
+    border-radius:15px;
+    width: 45%;
+    height: 20%;
+    border: 1px solid #00000014;
+    padding: 10px 0 10px 0;
+    margin: 1rem 0 1rem 0;
+    background-color: white;
+
+    .submit-forgot{
+      font: italic normal bold 25px/70px Helvetica Neue;
+      .icon {
+        margin-left: 10px;
+        margin-right: 0px;
+        width: 24px;
+        height: 20px;
+      }
+    }
+  }
   
   form {
     display: flex;

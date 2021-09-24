@@ -25,7 +25,7 @@ const RegistrationForm :React.FC =()=>{
 
     return(
         <ContainerForm>
-            <h2> Registration </h2>
+            <h1> Registration </h1>
             <div className="formDiv">
                 <form onSubmit={submitHandler}>
                     

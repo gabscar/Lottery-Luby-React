@@ -22,13 +22,13 @@ const ForgotComponent :React.FC =()=>{
 
     return(
         <ContainerForm>
-            <h2> Registration </h2>
+            <h1> Reset Password </h1>
             <div className="formDivForgot">
                 <form onSubmit={submitHandler}>
                     <input type='email' id='email'  placeholder ="Email" required ref={emailInputRef} />
                     <div>
-                        <button type="submit">
-                            Send Link  <FontAwesomeIcon icon={faArrowRight} />
+                        <button className ="submit-forgot"type="submit">
+                            Send Link  <FontAwesomeIcon className="icon" icon={faArrowRight} />
                         </button>
                     </div>
                 </form>
