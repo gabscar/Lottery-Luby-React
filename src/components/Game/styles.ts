@@ -17,6 +17,7 @@ export const GameSection = styled.div`
         flex-direction: row;
         text-transform: uppercase;
         color: #707070;
+        padding-bottom: 2%;
     }
     .title h2{
         font: italic normal bold 24px Helvetica Neue;
@@ -32,7 +33,8 @@ export const GameSection = styled.div`
     }
     .chooseGame .GameMode{
         display: flex;
-        margin-left: 0rem; 
+        margin-left: 0rem;
+        padding-top: 1rem; 
     }
     .chooseGame p{
         text-align: left;
@@ -69,6 +71,10 @@ export const GameSection = styled.div`
         border-radius: 10px;
         opacity: 1;
         height: 3.25rem;
+        &:hover{
+            color: #f7f7f7;
+            background-color: #27c383;
+        }
     }
     .buttonsActionGame .buttons-left button:first-child{
         margin-right: 1.563rem;
@@ -83,6 +89,9 @@ export const GameSection = styled.div`
         height: 3.25rem;
         width: 13.063rem;
         margin-right: 2rem;
+        &:hover{
+            background-color:#2e781f;
+        }
     }
     @media (max-width:1000px){
         
@@ -93,6 +102,22 @@ export const GameSection = styled.div`
             padding: 0% 5% 0% 5%;
         }
     }
+    @media (max-width:900px){
+        .buttonsActionGame .buttons-left button:first-child{
+            margin-bottom: 1rem;
+        }
+    }
+    @media (max-width:390px){
+        margin-left: 1rem; 
+        margin-right: 1rem;  
+        .buttonsActionGame .buttons-left button:first-child{
+            margin-bottom: 1rem;
+        }
+        .chooseGame p{
+            padding-left:1rem;
+        }
+    }
+
     
 `
 
@@ -101,7 +126,7 @@ export const ButtonGameMode = styled.button<{color:string; selected:boolean}>`
     color : ${({color,selected})=>(selected ===true ? '#FFFFFF':color)};
     background-color:${({color,selected})=>(selected ===true ? color:'#FFFFFF' )};
     border : ${({color})=>'2px solid' +color};
-    padding : 0rem 1.25rem;
+    padding : 0.3rem 1.25rem;
     border-radius : 1.25rem;
     margin-left : 1rem;
     cursor : pointer;
@@ -109,11 +134,15 @@ export const ButtonGameMode = styled.button<{color:string; selected:boolean}>`
     outline: none;
     min-width: 113px;
     heigth:20px;
+    &:hover{
+        background-color:${({color})=>color};
+        color:#FFFFFF;
+    }
 `
 export const ButtonNumber = styled.button<{color:string}>`
 
     padding: 0.75rem 0.75rem 0.75rem 0.75rem;
-    margin-left: 5px;
+    margin-left: 12px;
     margin-bottom: 20px;
     border-radius: 6rem;
     background-color: ${({color})=>color};    
@@ -121,9 +150,12 @@ export const ButtonNumber = styled.button<{color:string}>`
     font-weight: 400;
     cursor: pointer;    
     border: none;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.94rem;
+    height: 4.063rem;
    
+    &:hover{
+        background-color: #868686;
+    }
 `
 
 

@@ -4,14 +4,15 @@ import Header from '../components/Layout/header';
 import  Footer  from '../components/Layout/footer';
 import { useSelector } from "react-redux";
 import { RootState } from "../store";
-
+import { ToastContainer } from 'react-toastify';
 import RegistrationPage from '../Pages/RegistrationPage';
 import LoginPage from '../Pages/LoginPage';
 import NotFoundPage from '../Pages/NotFoundPage';
 import ForgotPasswordPage from '../Pages/ForgotPasswordPage';
 import NewGamePage from "../Pages/NewGamePage";
 import HomePage from "../Pages/HomePage";
-
+import Style from "../Style";
+import { HeaderContainer } from "../components/Layout/styles";
 
 
 
@@ -19,9 +20,10 @@ const Routes = ()=>{
 
     const isAuth = useSelector((state: RootState) => state.auth.isLoggedin);
     return(
+        <>
         <BrowserRouter>
-            {isAuth && <Header/>}
-            
+            {isAuth&&<Header/>}
+          
             <Switch>
                 <Route path='/' exact>
                     <Redirect to="/login"/>
@@ -49,6 +51,8 @@ const Routes = ()=>{
             </Switch>
             <Footer/>
         </BrowserRouter>
+        <Style/>
+        </>
     )
 }
 

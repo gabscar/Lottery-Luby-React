@@ -6,7 +6,7 @@ export const CartContainer = styled.div`
     background-color: #FFF;
     border-radius: 0.625rem;
     border: 1px solid #E2E2E2;
-    width: 30%;
+    width: 35%;
     position: relative;
     margin-right: 12.438rem; 
 
@@ -33,7 +33,14 @@ export const CartContainer = styled.div`
         flex-direction: column;
         align-items: center;  
         overflow-y: scroll;
-        overflow-x: hidden; 
+        overflow-x: hidden;
+        button{
+            padding-left:1rem;
+        } 
+        img{
+            width:30px;
+            heigth:30px;
+        }
         
     }
     
@@ -42,13 +49,13 @@ export const CartContainer = styled.div`
     }
 
     .cart-element .cart-item::-webkit-scrollbar-track{
-        background: var(--white);
+        background: #f7f7f7;
     }
 
     .cart-element .cart-item::-webkit-scrollbar-thumb{
-        background-color: var(--white);   
+        background-color: #f7f7f7;   
         border-radius: 20px;       
-        border: 0.1px solid var(--ligthgray);  
+        border: 0.1px solid #868686;  
     }
    
     .totalCart{
@@ -85,12 +92,15 @@ export const CartContainer = styled.div`
         justify-content: center;   
         position: absolute;
         width: 100%;
-        border: 1px solid var(--cartColor); 
+        border: 1px solid #E2E2E2; 
         height: 6rem;
         cursor: pointer;
         bottom: 0rem;       
         color: #27c383;    
         font: italic normal bold 35px/70px Helvetica Neue;
+        &:hover{
+            background-color: #cfd1cf;
+        }
         
     }
     .save-btn .icon{
@@ -106,6 +116,15 @@ export const CartContainer = styled.div`
         margin:0% 5% 0% 5%;
         
     }
+    @media (max-width:1366px){
+        width:45%;
+    }
+    @media (max-width:500px){
+        width: 80%;
+        margin-right: 0rem;
+        align-self:center; 
+        justify-self: center;
+    }
 `
 
 
@@ -120,7 +139,10 @@ export const CartInsertedItem = styled.div<{color:string}>`
     
     button{
         background-color:#fff;
-        border:none;    }
+        border:none;    
+        cursor: pointer;
+        
+    }
     img{
         width: 20px;
         height: 24px;

@@ -10,29 +10,14 @@ export const ListContainer = styled.div`
     padding-left: 8.125rem;
     padding-bottom: 28rem;
 
-    .listCard{
-        align-itens:left;
-        border-left: 4px solid red;
-        border-radius : 4px 0px 0px 4px;
-        width: 417px;
-        display:flex;
-        flex-direction:column;
-        padding: 0% 2% 0% 2%;
+    @media (max-width:1100px){
+        max-width:1000px;
+        padding: 0% 0% 90% 0%;
     }
-    .numbers{
-        font: italic normal bold 20px Helvetica Neue;
-        color: #868686;
-        margin-top 0rem;
+    @media (max-width:700px){
+        padding-bottom:40rem;
     }
-    .dateAndValue{
-        font: normal normal normal 17px Helvetica Neue;
-        color: #868686;
-        margin-top 0rem;
-    }
-    span{
-        color: red;
-        font: italic normal bold 20px Helvetica Neue;
-    }
+    
 
 `
 
@@ -43,6 +28,7 @@ export const RecentGamesContainer = styled.div`
     .Filters{
         display: flex;
         flex-direction: row;
+        
         p{
             font: italic normal bold 24px Helvetica Neue;
         }
@@ -57,6 +43,7 @@ export const RecentGamesContainer = styled.div`
     .NewBet{ 
         display:flex;
         padding-left:20%;
+        
         button{
             align-self: center;
             background-color: white;
@@ -66,7 +53,25 @@ export const RecentGamesContainer = styled.div`
             color: #B5C401;
             opacity: 1;
         }
+        .icon{
+            width: 24px;
+            height: 20px;
+        }
     }
+    @media (max-width:1100px){
+        
+        .NewBet{  
+            padding-left:3%;
+        }
+    }
+    @media (max-width:1000px){
+        flex-direction:column;
+        .NewBet{
+            padding: 3% 5% 5% 0%;
+        }
+    }
+
+
 `
 
 
@@ -85,4 +90,40 @@ export const ButtonFilter = styled.button<{color:string; selected:boolean}>`
     width: 123px;
     height: 34px;
     margin-left:12px;
+    &:hover{
+        background-color:${({color})=>color};
+        color:#FFFFFF;
+    }
+`
+
+
+export const CardGame = styled.div<{color:string}>`
+
+    
+    align-itens:left;
+    border-left: ${({color})=>'4px solid'+color};
+    border-radius : 4px 0px 0px 4px;
+    width: 417px;
+    display:flex;
+    flex-direction:column;
+    padding: 0% 2% 0% 2%;
+    margin-top:30px;
+    
+    .numbers{
+        font: italic normal bold 20px Helvetica Neue;
+        color: #868686;
+        margin-top 0rem;
+    }
+    .dateAndValue{
+        font: normal normal normal 17px Helvetica Neue;
+        color: #868686;
+        margin-top 0rem;
+    }
+    span{
+        color :${({color})=>color};
+        font: italic normal bold 20px Helvetica Neue;
+    }
+    @media (max-width:1100px){
+        margin-left:1rem;
+    }
 `

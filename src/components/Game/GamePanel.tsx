@@ -41,15 +41,14 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
       },[])
     
     const clickNumberHandle=(index:number)=>{
-        let limit = gameSelected['max-number'] -selectedNumbers.length 
-        if(limit !=0 && !selectedNumbers.includes(index)){
+        let limit = Number(gameSelected['max-number']) -selectedNumbers.length 
+        if(limit !==0 && !selectedNumbers.includes(index)){
             let newArr = [...selectedNumbers,index];
             setSelectedNumbers(newArr);
         }else if(selectedNumbers.includes(index)){
             setSelectedNumbers(selectedNumbers.filter((item)=>item !==index));
             
-        }else if(limit ===0){
-           
+        }else if(limit ===0){           
             alert(`número máximo de números (${gameSelected['max-number']}) selecionado`)
         }
     }
@@ -97,13 +96,14 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
             clearGameHandle();
             limit = gameSelected['max-number'];
             numbers =[];
-        }else{
-            numbers= selectedNumbers;
         }
-        while(numbers.length<limit){
+        let counter =0;
+        numbers.push(...selectedNumbers);
+        while(counter<limit){
             let sort = Math.floor(Math.random() * (gameSelected.range - 1)+1);
             if(numbers.indexOf(sort) === -1){
                 numbers.push(sort);
+                counter++;
             }
         }
         setSelectedNumbers([...numbers]);

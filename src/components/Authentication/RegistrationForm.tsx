@@ -20,6 +20,7 @@ const RegistrationForm :React.FC =()=>{
         const enteredEmail = emailInputRef.current!.value;
         const enteredPassword = passwordInputRef.current!.value;
         const enteredName = nameInputRef.current!.value;
+        console.log(enteredEmail,enteredPassword,enteredName)
     }
 
     return(

@@ -1,6 +1,6 @@
 
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {HeaderContainer} from './styles';
 import { Link } from 'react-router-dom';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';

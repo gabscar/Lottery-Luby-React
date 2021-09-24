@@ -30,7 +30,7 @@ const AuthForm :React.FC =()=>{
 
     return(
         <ContainerForm>
-            <h2> Authentication </h2>
+            <h1> Authentication </h1>
             <div className="formDiv">
                 <form onSubmit={submitHandler}>
                     
@@ -52,7 +52,7 @@ const AuthForm :React.FC =()=>{
                     </button>
                     <div>
                         <button type="submit">
-                            Log In  <FontAwesomeIcon icon={faArrowRight} />
+                            Log In  <FontAwesomeIcon className="icon" icon={faArrowRight} />
                         </button>
                     </div>
                 </form>

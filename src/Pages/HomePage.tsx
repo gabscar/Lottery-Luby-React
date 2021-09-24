@@ -1,4 +1,5 @@
-import ListGames from "../components/ListGames/listGames"
+import ListRecentGames from "../components/ListGames/ListRecentGames";
+
 
 
 
@@ -6,7 +7,7 @@ const HomePage: React.FC =()=>{
 
     return(
         <>
-            <ListGames/>
+            <ListRecentGames/>
         </>
     )
 }

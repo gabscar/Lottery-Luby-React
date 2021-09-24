@@ -3,7 +3,7 @@ import CartNewGame from "../components/Cart/CartNewGame";
 import GamePanel from "../components/Game/GamePanel";
 import { ContainerGames } from "../components/Game/styles";
 import { Game } from "../components/Game/GamePanel";
-import { dataAtualFormatada } from "../Services/utilFunctions";
+import { dataAtualFormatada } from "../Utils/utilFunctions";
 
 export interface cart{
     type:string;
@@ -35,7 +35,7 @@ const NewGamePage : React.FC=()=>{
     return(
         <ContainerGames>
             <GamePanel setCart= {addNewItem} />
-            <CartNewGame CartItem = {cartItems} RemoveCart= {removeItem}/>
+            <CartNewGame CartItem = {cartItems} RemoveCart= {removeItem} setCart = {setCartItem}/>
         </ContainerGames>
     )
 }
