@@ -157,11 +157,12 @@ const GamePanel : React.FC <cartFunc>= ({setCart})=>{
             </div>
             <div className='buttonsActionGame'>
                 <div className="buttons-left">
-                    <button className="left-btn" onClick={completeRandomGameHandle}>Complete game</button>
-                    <button className="left-btn" onClick={clearGameHandle}>Clear game</button>
+                    <button className="left-btn" id="handle_completeGame" onClick={completeRandomGameHandle}>Complete game</button>
+                    <button className="left-btn" id="handle_ClearGame" onClick={clearGameHandle}>Clear game</button>
                 </div>
                 <button className="right-btn"
                         onClick={addCartHandle}
+                        id="handle_addGameInCart"
                 >
                     <FiShoppingCart size={25} style={{ marginRight: "20px" }}
                 

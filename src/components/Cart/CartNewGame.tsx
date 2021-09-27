@@ -92,8 +92,7 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart,setCart})=>{
             }) 
 
             return;
-        }
-        if(totalPrice<30){
+        }else if(totalPrice<30){
             toast.warning(`O valor mínimo de compras é de R$ 30,00`,{
                 position: "bottom-right",
                 autoClose: 5000,
@@ -104,13 +103,22 @@ const CartNewGame: React.FC<cartEntrance> = ({CartItem,RemoveCart,setCart})=>{
                 progress: undefined,
             }) 
             return;
+        }else{
+            let cartWithData = [...CartItem];
+            
+            dispatch(CartActions.buyGames(cartWithData));
+            setTotalPrice(0);
+            setCart([]);
+            toast.success(`Jogos comprados com sucesso, boa sorte`,{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            }) 
         }
-        let cartWithData = [...CartItem];
-        
-        dispatch(CartActions.buyGames(cartWithData));
-        setTotalPrice(0);
-        setCart([]);
-
     }
     
     return (

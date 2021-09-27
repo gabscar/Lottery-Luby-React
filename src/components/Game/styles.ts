@@ -101,11 +101,15 @@ export const GameSection = styled.div`
         .chooseGame {
             padding: 0% 5% 0% 5%;
         }
+        .buttonsActionGame .right-btn{
+            margin-left: 1rem;
+        }
     }
-    @media (max-width:900px){
+    @media (max-width:1200px){
         .buttonsActionGame .buttons-left button:first-child{
             margin-bottom: 1rem;
         }
+        
     }
     @media (max-width:390px){
         margin-left: 1rem; 

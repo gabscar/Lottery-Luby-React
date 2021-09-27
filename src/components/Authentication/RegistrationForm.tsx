@@ -21,6 +21,7 @@ const RegistrationForm :React.FC =()=>{
         const enteredPassword = passwordInputRef.current!.value;
         const enteredName = nameInputRef.current!.value;
         console.log(enteredEmail,enteredPassword,enteredName)
+        history.push('/');
     }
 
     return(

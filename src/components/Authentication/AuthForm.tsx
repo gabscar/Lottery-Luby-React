@@ -25,6 +25,8 @@ const AuthForm :React.FC =()=>{
             password:'123456',
             administrator: false            
         }));
+        localStorage.setItem('login', enteredEmail);
+        localStorage.setItem('password', enteredPassword);
         history.push('/game');
     }
 

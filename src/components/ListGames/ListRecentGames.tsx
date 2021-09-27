@@ -1,4 +1,4 @@
-import { ButtonFilter, ListContainer, RecentGamesContainer,CardGame } from "./styles";
+import { ButtonFilter, ListContainer, RecentGamesContainer,CardGame, EmptyList } from "./styles";
 import api from '../../Services/api';
 import { Game } from "../Game/GamePanel";
 import { useState, useEffect } from "react";
@@ -47,7 +47,7 @@ const ListRecentGames: React.FC = ()=>{
     const renderListGames = ()=>{
 
         return(
-            listGames.length===0 ?(<p>Nada por aqui</p>
+            listGames.length===0 ?(<EmptyList>Nada por aqui</EmptyList>
                 ):(
                     listGames.map((item)=>(
                         <CardGame color={item.color}>

@@ -17,6 +17,13 @@ export const ListContainer = styled.div`
     @media (max-width:700px){
         padding-bottom:40rem;
     }
+    @media (max-width:1000px){
+       .empty_list:{
+           display:flex;
+           padding-left:3%;
+           font: italic normal normal 17px Helvetica Neue;
+        } 
+    }
     
 
 `
@@ -66,8 +73,11 @@ export const RecentGamesContainer = styled.div`
     }
     @media (max-width:1000px){
         flex-direction:column;
+        .Filters{
+            padding-left:3%;
+        }
         .NewBet{
-            padding: 3% 5% 5% 0%;
+            padding: 3% 5% 5% 3%;
         }
     }
 
@@ -126,4 +136,10 @@ export const CardGame = styled.div<{color:string}>`
     @media (max-width:1100px){
         margin-left:1rem;
     }
+`
+export const EmptyList = styled.p`
+
+    font: italic normal bold 24px Helvetica Neue;
+    text-align:center;
+
 `
